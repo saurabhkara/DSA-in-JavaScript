@@ -53,6 +53,52 @@ function countDigit(num) {
   return count;
 }
 
-console.log(countDigit(15462));
-console.log(countDigit("asd"));
-console.log(countDigit(-546));
+// console.log(countDigit(15462));
+// console.log(countDigit("asd"));
+// console.log(countDigit(-546));
+
+// Q.4 Check number is Palindrome
+
+function isPalindrome(num) {
+  if (!num || typeof num !== "number") {
+    return;
+  }
+
+  let temp = num;
+  let reverse = 0;
+  while (temp) {
+    let lastD = temp % 10;
+    temp = parseInt(temp / 10);
+    reverse = reverse * 10 + lastD;
+  }
+  return num === reverse;
+}
+
+// console.log(isPalindrome(121));
+// console.log(isPalindrome(1234));
+// console.log(isPalindrome());
+// console.log(isPalindrome("jkjhh"));
+
+// Q. 5 Fibonacci series using loop
+
+function fibonacci(num) {
+  if (num < 2) {
+    return num;
+  }
+
+  let prev = 0;
+  let currrent = 1;
+  let next;
+  for (let i = 2; i <= num; i++) {
+    next = prev + currrent;
+    prev = currrent;
+    currrent = next;
+  }
+  console.log(next);
+  return next;
+}
+
+// fibonacci(1);
+// fibonacci(0);
+// fibonacci(2);
+// fibonacci(3);
