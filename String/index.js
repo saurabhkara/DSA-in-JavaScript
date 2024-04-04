@@ -182,13 +182,124 @@ console.log(lastWordLength(str9));
 
 // Q.17 Valid Palindrome, After converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters.
 
+let str10 = "ramram2marmar2*7";
+
+function validPalindrom(str) {
+  let validStr = "";
+
+  for (let char of str.toLowerCase()) {
+    if (
+      char.charCodeAt() >= "a".charCodeAt() &&
+      char.charCodeAt() <= "z".charCodeAt()
+    ) {
+      validStr = validStr + char;
+    }
+  }
+
+  let len1 = validStr.length - 1;
+  for (let i = 0; i < len1; i++) {
+    if (validStr[i] !== validStr[len1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(validPalindrom(str10));
+
 // Q.18 Begin with an empty string s. For each group of consecutive repeating characters in chars:
 
 // If the group's length is 1, append the character to s.
 // Otherwise, append the character followed by the group's length.
 
+let chars = ["a", "b", "a", "a", "b", "c", "c", "c"];
+
+function compressString(arr) {
+  let final = [];
+  let obj = {};
+  for (let item of arr) {
+    obj[item] = obj[item] ? obj[item] + 1 : 1;
+  }
+
+  for (let key in obj) {
+    if (obj[key] === 1) {
+      final.push(key);
+    } else {
+      final.push(key, obj[key]);
+    }
+  }
+  console.log(final);
+  return final.length;
+}
+
+console.log(compressString(chars));
+
 // Q.19 Reverse the words of string
 
+function reverseWords(str) {
+  let final = "";
+  let arrStr = str.split(" ");
+  for (let i = arrStr.length - 1; i >= 0; i--) {
+    final = final + arrStr[i] + " ";
+  }
+  return final;
+}
+
+console.log(reverseWords(str4));
 // Q.20 Reverse the vowel of string
 
+let str11 = "SaurabhKumari";
+
+function isVowel(char) {
+  if (
+    char === "a" ||
+    char === "e" ||
+    char === "i" ||
+    char === "o" ||
+    char === "u"
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function reverseVowel(str) {
+  let vowel = "";
+  let final = "";
+  for (let char of str) {
+    if (isVowel(char)) {
+      vowel = char + vowel;
+    }
+  }
+  let i = 0;
+  for (let char of str) {
+    if (isVowel(char)) {
+      final = final + vowel[i++];
+    } else {
+      final = final + char;
+    }
+  }
+  console.log(vowel);
+  return final;
+}
+
+console.log(reverseVowel(str11));
+
 // Q.21 Rotate the string
+
+let str12 = "abcde";
+let str13 = "bcdea";
+
+function checkRotation(str1, str2) {
+  for (let char of str1) {
+    let firstChar = str1[0];
+    let remaining = str1.slice(1);
+    str1 = remaining + firstChar;
+    if (str1 === str2) {
+      return true;
+    }
+  }
+
+  return false;
+}
+console.log(checkRotation(str12, str13));
