@@ -85,8 +85,8 @@ function reverseString(str) {
   }
   return result;
 }
-// console.log(reverseString("saurabh"));
-// console.log(reverseString("RadhaRani"));
+console.log(reverseString("saurabh"));
+console.log(reverseString("RadhaRani"));
 
 // Q.13 Check given two strings are Anagram
 
@@ -113,7 +113,7 @@ function checkAnagram(str1, str2) {
   }
   return true;
 }
-// console.log(checkAnagram(str5, str6));
+console.log(checkAnagram(str5, str6));
 
 // Q.14 Longest common prefix in array of string
 
@@ -141,7 +141,7 @@ function commonPrefix(arr) {
   return result;
 }
 
-// console.log(commonPrefix(arr7));
+console.log(commonPrefix(arr7));
 
 // Q.15 Merge the strings by adding alternative letter.
 
@@ -246,6 +246,7 @@ function reverseWords(str) {
 }
 
 console.log(reverseWords(str4));
+
 // Q.20 Reverse the vowel of string
 
 let str11 = "SaurabhKumari";
