@@ -18,10 +18,10 @@ function checkElement(arr, elem) {
 }
 
 // inbuilt method includes() can also be used.
-// console.log(checkElement({}, 6));
-// console.log(checkElement(arr1, ""));
-// console.log(checkElement(arr1, 5));
-// console.log(checkElement(arr1, 3));
+console.log(checkElement({}, 6));
+console.log(checkElement(arr1, ""));
+console.log(checkElement(arr1, 5));
+console.log(checkElement(arr1, 3));
 
 // Q.2 Check element exist and return array index
 
