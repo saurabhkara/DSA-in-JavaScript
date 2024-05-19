@@ -326,3 +326,31 @@ function longestSubstringUsingArray(str) {
 }
 
 console.log(longestSubstringUsingArray("saurabh"));
+
+// Sliding window using set
+
+function longestSubstringUsingSet(str) {
+  if (!str) {
+    reurn;
+  }
+
+  let start = 0;
+  let end = 0;
+  let maximumLength = 0;
+
+  let set = new Set();
+  while (end < str.length) {
+    if (set.has(str[end])) {
+      set.delete(str[start]);
+      start++;
+    } else {
+      set.add(str[end]);
+      end++;
+      maximumLength = Math.max(maximumLength, set.size);
+    }
+  }
+
+  return maximumLength;
+}
+
+console.log(longestSubstringUsingSet("Saurabh"));
