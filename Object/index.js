@@ -354,3 +354,40 @@ function longestSubstringUsingSet(str) {
 }
 
 console.log(longestSubstringUsingSet("Saurabh"));
+
+// Q. Group Anangram
+
+let arrStrs = ["eat", "tea", "tan", "ate", "nat", "bat"];
+
+//Brute force approach
+
+function groupAnangramByBruteForce(arrStr) {
+  let final = {};
+  let arr = new Array(arrStr.length).fill(0);
+  for (let i = 0; i < arrStr.length; i++) {
+    if (!arr[i]) {
+      final[i] = [arrStr[i]];
+      arr[i] = 1;
+    }
+    for (let j = i + 1; j < arrStr.length - 1; j++) {
+      if (arr[j]) {
+        continue;
+      } else {
+        if (isAnagram(arrStr[i], arrStr[j])) {
+          final[i].push(arrStr[j]);
+          arr[j] = 1;
+        }
+      }
+    }
+  }
+  // console.log(final);
+  return Object.values(final);
+}
+
+function isAnagram(str1, str2) {
+  return str1.split("").sort().join("") === str2.split("").sort().join("");
+}
+
+console.log(groupAnangramByBruteForce(arrStrs));
+console.log(groupAnangramByBruteForce([""]));
+console.log(groupAnangramByBruteForce(["a"]));
