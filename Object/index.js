@@ -355,7 +355,7 @@ function longestSubstringUsingSet(str) {
 
 console.log(longestSubstringUsingSet("Saurabh"));
 
-// Q. Group Anangram
+//Q.19 Group Anangram
 
 let arrStrs = ["eat", "tea", "tan", "ate", "nat", "bat"];
 
@@ -391,3 +391,48 @@ function isAnagram(str1, str2) {
 console.log(groupAnangramByBruteForce(arrStrs));
 console.log(groupAnangramByBruteForce([""]));
 console.log(groupAnangramByBruteForce(["a"]));
+
+//Optimized way
+console.log("------Optimzed Way-------");
+function groupAnangramOptimized(arrStr) {
+  if (!Array.isArray(arrStr)) {
+    return;
+  }
+
+  let result = {};
+  for (let i = 0; i < arrStr.length; i++) {
+    let currentStr = arrStr[i];
+    currentStr = currentStr.split("").sort().join("");
+    if (result[currentStr]) {
+      result[currentStr].push(arrStr[i]);
+    } else {
+      result[currentStr] = [arrStr[i]];
+    }
+  }
+
+  return Object.values(result);
+}
+// n *( k *log k)
+console.log(groupAnangramOptimized(arrStrs));
+console.log(groupAnangramOptimized([""]));
+console.log(groupAnangramOptimized(["a"]));
+
+//Q.20 Find All Anagrams in a String
+const input = "cbaebabacd";
+
+function findAllAnagram(inputStr1, inpStr2) {
+  const str2 = inpStr2.split("").sort().join("");
+  const len = str2.length;
+  let output = [];
+  for (let i = 0; i <= inputStr1.length - len; i++) {
+    let subStr = inputStr1.slice(i, i + len);
+    subStr = subStr.split("").sort().join("");
+    if (subStr === str2) {
+      output.push(i);
+    }
+  }
+  return output;
+}
+
+console.log(findAllAnagram(input, "abc"));
+console.log(findAllAnagram("abab", "ab"));
