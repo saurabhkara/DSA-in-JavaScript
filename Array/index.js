@@ -44,7 +44,7 @@ function returnIndex(arr, elem) {
 console.log(returnIndex(arr2, 2));
 console.log(returnIndex(arr2, 3));
 
-// Q.3 How to add, delete and update element from specific index.
+// Q.3 How to add, delete and update element from/to specific index
 
 let arr3 = [4, 8, 7, 9, 6, 5];
 
@@ -55,7 +55,7 @@ function addElem(arr, elem, index) {
   arr[index] = elem;
   return arr;
 }
-//push() can be used to add element in array
+// push() can be used to add element in array
 // console.log(addElem(arr3, 5, 6));
 // console.log(addElem(arr3, 9, 7));
 
@@ -68,8 +68,8 @@ function updateElem(arr, elem, index) {
   return arr;
 }
 
-// console.log(updateElem(arr3, 2, 3));
-// console.log(updateElem(arr3, 0, 5));
+console.log(updateElem(arr3, 2, 3));
+console.log(updateElem(arr3, 0, 5));
 
 function deleteElem(arr, index) {
   if (!Array.isArray(arr)) {
@@ -78,13 +78,13 @@ function deleteElem(arr, index) {
   return arr.splice(index, 1);
 }
 
-// console.log(deleteElem(arr3, 2));
+console.log(deleteElem(arr3, 2));
 
 // Q.4 Difference between Slice and Splice method
 const arr4 = [8, 1, 0, 2, 3, 4];
 
 const res = arr4.slice(1, 4);
-// console.log(res);
+console.log(res);
 
 // Q.5 Shallow copy and Deep Copy
 
@@ -96,7 +96,7 @@ tempArr[0] = 587;
 
 let deepArr = [...arr5];
 deepArr[1] = 879;
-// console.log(arr5);
+console.log(arr5);
 
 // Q.7 concatenate two arrays
 
@@ -139,16 +139,16 @@ function isArrayEqual(arr1, arr2) {
   return true;
 }
 
-// console.log(isArrayEqual(arr8, arr9));
-// console.log(isArrayEqual(arr8, arr7));
+console.log(isArrayEqual(arr8, arr9));
+console.log(isArrayEqual(arr8, arr7));
 
 // Q.9 Sort array in Ascending and Descending order
 
 const arr10 = [5, 8, 9, 4, 6, 7];
 arr10.sort((a, b) => a - b);
-// console.log(arr10);
+console.log(arr10);
 arr10.sort((a, b) => b - a);
-// console.log(arr10);
+console.log(arr10);
 
 // Q.10 Reverse an array
 const arr11 = [5, 8, 9, 3, 0, 4, 6];
@@ -167,7 +167,7 @@ function arrReverse(arr) {
   console.log(arr);
 }
 
-// arrReverse(arr12);
+arrReverse(arr12);
 
 // Q.11 map, filter, find,every and reduce methods
 
@@ -181,17 +181,17 @@ const findArr = arr13.find((item) => item === 2);
 
 const reducedResult = arr13.reduce((acc, item) => acc + item, 0);
 
-// console.log(mappedArr);
-// console.log(filteredArr);
-// console.log(findArr);
-// console.log(reducedResult);
+console.log(mappedArr);
+console.log(filteredArr);
+console.log(findArr);
+console.log(reducedResult);
 
 // Q.12 Flattening the array
 
 let arr14 = [1, [2, 3, [4, 5, 6]]];
 
-// const flattendArr = arr14.flat(2);
-// console.log(flattendArr);
+const flattendArr = arr14.flat(2);
+console.log(flattendArr);
 
 let flattendResultArr = [];
 
