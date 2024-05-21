@@ -211,3 +211,23 @@ function flatArr(arr) {
 
 flatArr(arr14);
 console.log(flattendResultArr);
+
+// Q.13 Find pivot element
+function pivotElement(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+
+  let leftSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let rightSum = sum - leftSum - arr[i];
+    if (rightSum === leftSum) {
+      return i;
+    }
+    leftSum = leftSum + arr[i];
+  }
+  return -1;
+}
+
+console.log(pivotElement([1, 7, 3, 6, 5, 6]));
