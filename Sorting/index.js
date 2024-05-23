@@ -60,7 +60,34 @@ function insertionSort(arr) {
     }
     arr[j + 1] = temp;
   }
-  console.log(arr);
+  return arr;
 }
 
 console.log(insertionSort([7, 6, 2, 6, 1]));
+
+// Q.4 Quick sort
+
+function quickSort(arr) {
+  const pivot = Math.floor(Math.random() * arr.length);
+  if (arr.length < 2) {
+    return arr;
+  }
+  const leftArr = [];
+  const rightArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[pivot]) {
+      continue;
+    }
+    if (arr[i] < arr[pivot]) {
+      leftArr.push(arr[i]);
+    } else {
+      rightArr.push(arr[i]);
+    }
+  }
+  return [...quickSort(leftArr), arr[pivot], ...quickSort(rightArr)];
+}
+
+console.log(quickSort([5, 8, 7, 6, 9]));
+
+// Merge Sort
