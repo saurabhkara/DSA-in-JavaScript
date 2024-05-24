@@ -90,4 +90,37 @@ function quickSort(arr) {
 
 console.log(quickSort([5, 8, 7, 6, 9]));
 
+// Quicksort without extra memory
+
+function partition(arr, left, right) {
+  let pivot = arr[right];
+  let j = left - 1;
+  for (let i = left; i < right; i++) {
+    if (arr[i] < pivot) {
+      j++;
+      let temp = arr[j];
+      arr[j] = arr[i];
+      arr[i] = temp;
+    }
+  }
+  j++;
+  arr[right] = arr[j];
+  arr[j] = pivot;
+  return j;
+}
+
+function quickSortWithoutExtraMemory(arr, left, right) {
+  if (left < right) {
+    const pivot = partition(arr, left, right);
+    console.log("pivot", pivot);
+    quickSortWithoutExtraMemory(arr, left, pivot - 1);
+    quickSortWithoutExtraMemory(arr, pivot + 1, right);
+  }
+  return arr;
+}
+
+console.log(quickSortWithoutExtraMemory([5, 8, 6, 4, 3], 0, 4));
+
 // Merge Sort
+
+function mergeSort(arr) {}

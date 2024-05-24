@@ -155,3 +155,31 @@ function countPlayer(data) {
 console.log(countPlayer(data));
 
 ```
+
+### Q.12 Number of good pairs
+
+```
+const pair = [1, 2, 3, 1, 1, 3];
+const pair2 = [1, 1, 1, 1];
+const pair3 = [1, 2, 3];
+
+function calculatePairs(arr) {
+  const pairsObj = {};
+
+  for (let first = 0; first < arr.length - 1; first++) {
+    for (let second = first + 1; second < arr.length; second++) {
+      if (arr[first] === arr[second]) {
+        let key = first + "" + second;
+        pairsObj[key] = [first, second];
+      }
+    }
+  }
+  return Object.values(pairsObj).length;
+}
+
+console.log(calculatePairs(pair));
+console.log(calculatePairs(pair2));
+console.log(calculatePairs(pair3));
+```
+
+### Q.13 Count the Number of Consistent Strings

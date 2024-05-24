@@ -142,8 +142,8 @@ function calculatePairs(arr) {
 }
 
 console.log(calculatePairs(pair));
-// console.log(calculatePairs(pair2));
-// console.log(calculatePairs(pair3));
+console.log(calculatePairs(pair2));
+console.log(calculatePairs(pair3));
 
 // Q.13 Count the Number of Consistent Strings
 //You are given a string allowed consisting of distinct characters and an array of strings words. A string is consistent if all characters in the string appear in the string allowed.
