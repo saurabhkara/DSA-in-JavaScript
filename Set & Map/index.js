@@ -43,8 +43,15 @@ console.log(sortCharacterbasedOnOccurance(str));
 // Q.4 Map vs WeekMap
 // A WeakMap is a collection of key/value pairs whose keys must be objects.
 
-const weekmap = new WeakMap();
-weekmap.set({ name: "saurabh" }, "mehjsaj");
-console.log(weekmap);
+let sampleObj = { name: "saurabh" };
 
+const map2 = new Map();
+map2.set(sampleObj, "ssss");
+const weekmap = new WeakMap();
+weekmap.set(sampleObj, "ssss");
+console.log(weekmap, map2);
+
+sampleObj = null; //sampleObj made null;
+
+console.log(weekmap, map);
 // Set in javaScript

@@ -173,7 +173,7 @@ function consistentStr(allowed, words) {
 
 console.log(consistentStr(allowed, words));
 
-// Q.14 1. Two Sum
+// Q.14. Two Sum
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 const nums = [2, 7, 11, 15];
