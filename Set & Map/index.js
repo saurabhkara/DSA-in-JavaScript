@@ -54,4 +54,41 @@ console.log(weekmap, map2);
 sampleObj = null; //sampleObj made null;
 
 console.log(weekmap, map);
-// Set in javaScript
+
+//Q.5  Set in javaScript
+
+const set = new Set();
+
+set.add(7);
+set.add(6);
+
+console.log(set);
+for (let x of set) {
+  console.log(x);
+}
+
+// Q.6 Find unique value in array
+
+const arr = [1, 1, 8, 6, 7, 5, 6, 5, 4, 3, 3];
+console.log(new Set(arr));
+
+// Q.7 Intersection of two arr
+
+let arr1 = [4, 5, 6, 8, 9, 3, 6];
+let arr2 = [6, 8, 7, 9, 3, 5];
+
+function findIntersesction(arr1, arr2) {
+  const set1 = new Set(arr1);
+  const set2 = new Set(arr2);
+  const set3 = new Set();
+
+  for (let item of set1) {
+    if (set2.has(item)) {
+      set3.add(item);
+    }
+  }
+
+  return [...set3];
+}
+
+console.log(findIntersesction(arr1, arr2));
