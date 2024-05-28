@@ -92,3 +92,25 @@ function findIntersesction(arr1, arr2) {
 }
 
 console.log(findIntersesction(arr1, arr2));
+
+// Q.8 Longest Consecutive sequence
+
+function longestconsectiveSequence(arr) {
+  const set = new Set(arr);
+  const uniqueArr = [...set];
+  uniqueArr.sort((a, b) => a - b);
+  console.log(uniqueArr);
+
+  let length1 = 1;
+  for (let i = 1; i < uniqueArr.length; i++) {
+    if (uniqueArr[i - 1] + 1 !== uniqueArr[i]) {
+      break;
+    }
+    length1++;
+  }
+  return length1;
+}
+
+console.log(longestconsectiveSequence([0, 0, 1, 5, 6, 7, 8, 2, 3]));
+
+// Q.9
