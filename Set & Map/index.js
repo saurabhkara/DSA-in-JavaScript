@@ -113,4 +113,32 @@ function longestconsectiveSequence(arr) {
 
 console.log(longestconsectiveSequence([0, 0, 1, 5, 6, 7, 8, 2, 3]));
 
-// Q.9
+console.log("------------");
+// Q.9 Magic number
+
+function magicNumber(num) {
+  const set = new Set();
+  set.add(num);
+  let temp = num;
+  let sum;
+  while (1) {
+    sum = 0;
+    while (temp) {
+      let lastD = temp % 10;
+      temp = parseInt(temp / 10);
+      sum = sum + lastD * lastD;
+    }
+    if (sum === 1) {
+      return true;
+    }
+    if (set.has(sum)) {
+      return false;
+    } else {
+      set.add(sum);
+    }
+    temp = sum;
+  }
+}
+console.log(magicNumber(12));
+console.log(magicNumber(29));
+console.log(magicNumber(19));
