@@ -142,3 +142,29 @@ function magicNumber(num) {
 console.log(magicNumber(12));
 console.log(magicNumber(29));
 console.log(magicNumber(19));
+
+console.log("-------");
+
+// Q.10 First unique Character
+
+function uniqueChar(str) {
+  const map = new Map();
+
+  for (let char of str) {
+    if (map.has(char)) {
+      let val = map.get(char);
+      map.set(char, val + 1);
+    } else {
+      map.set(char, 1);
+    }
+  }
+
+  for (let i = 0; i < str.length; i++) {
+    if (map.get(str[i]) === 1) {
+      return i;
+    }
+  }
+  return -1;
+}
+console.log(uniqueChar("saurabh"));
+console.log(uniqueChar("shashak"));
