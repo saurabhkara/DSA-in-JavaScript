@@ -113,3 +113,9 @@ list.print();
 list.print();
 console.log(list.search(55));
 console.log(list.middleNode());
+
+// Q.1 Check linkedlist contains cycle
+
+// Q.2 Middle of Likedlist in O(n) using double pointer approach
+
+// Q.3 Reverse a linkedlist
