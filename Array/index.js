@@ -231,3 +231,5 @@ function pivotElement(arr) {
 }
 
 console.log(pivotElement([1, 7, 3, 6, 5, 6]));
+
+// https://docs.google.com/document/d/1hI4D_1CaxDWgf_mNHH0-5A7FBwFaFimJITEK-ggFimo/mobilebasic
