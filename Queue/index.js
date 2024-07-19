@@ -105,3 +105,66 @@ console.log(queueLL.dequeue());
 console.log(queueLL.dequeue());
 console.log(queueLL);
 console.log(queueLL.isEmpty());
+
+// Circular Queue
+
+class CircularQueue {
+  constructor(size) {
+    this.size = size;
+    this.data = [];
+    this.front = -1;
+    this.rear = -1;
+  }
+  enqueue(value) {
+    if (this.isFull()) {
+      return -1;
+    }
+    if (this.front === -1) {
+      this.front = 0;
+    }
+    this.rear = (this.rear + 1) % this.size;
+    this.data[this.rear] = value;
+    return this.rear;
+  }
+  dequeue() {
+    if (this.isEmpty()) {
+      return "Queue is empty";
+    }
+    let item = this.data[this.front];
+    if (this.front === this.rear) {
+      this.front = -1;
+      this.rear = -1;
+    } else {
+      this.front = (this.front + 1) % this.size;
+    }
+    return item;
+  }
+  isEmpty() {
+    if (this.front === -1) {
+      return true;
+    }
+    return false;
+  }
+  isFull() {
+    if (
+      (this.front === 0 && this.rear === this.size - 1) ||
+      this.rear === (this.front % this.size) - 1
+    ) {
+      return true;
+    }
+    return false;
+  }
+}
+
+const circularQ1 = new CircularQueue(4);
+console.log(circularQ1.enqueue(12));
+console.log(circularQ1.enqueue(10));
+console.log(circularQ1.enqueue(5));
+console.log(circularQ1.enqueue(4));
+console.log(circularQ1.enqueue(2));
+console.log(circularQ1.dequeue());
+console.log(circularQ1.dequeue());
+console.log(circularQ1.dequeue());
+console.log(circularQ1.dequeue());
+console.log(circularQ1.dequeue());
+console.log(circularQ1);
