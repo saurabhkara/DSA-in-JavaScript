@@ -38,6 +38,18 @@ class LinkedList {
     temp.next = newNode;
   }
 
+  insertAtEnd(data) {
+    let temp = this.head;
+    if (temp === null) {
+      return this.insertAtHead(data);
+    }
+    const newNode = new Node(data);
+    while (temp.next !== null) {
+      temp = temp.next;
+    }
+    temp.next = newNode;
+  }
+
   //Print all noded
   print() {
     let temp = this.head;
@@ -108,6 +120,7 @@ list.insertAtHead(65);
 list.insertAtHead(98);
 console.log(list.removeFromHead());
 console.log(list.insertAt(2, 50));
+list.insertAtEnd(850);
 list.print();
 // console.log(list.removeFrom(2));
 list.print();
