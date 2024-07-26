@@ -52,11 +52,14 @@ class LinkedList {
 
   //Print all noded
   print() {
+    let str = "";
     let temp = this.head;
-    while (temp) {
+    while (temp !== null) {
       console.log(temp.data);
+      str = str + temp.data;
       temp = temp.next;
     }
+    return str;
   }
 
   //Remove from Head
@@ -132,22 +135,47 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-list.insertAtHead(52);
-list.insertAtHead(65);
-list.insertAtHead(98);
-console.log(list.removeFromHead());
-console.log(list.insertAt(2, 50));
-list.insertAtEnd(850);
-list.print();
-// console.log(list.removeFrom(2));
-console.log("------");
-list.reverse();
-list.print();
-console.log(list.search(55));
-console.log(list.middleNode());
+// list.insertAtHead(52);
+// list.insertAtHead(65);
+// list.insertAtHead(98);
+// console.log(list.removeFromHead());
+// console.log(list.insertAt(2, 50));
+// list.insertAtEnd(850);
+// list.print();
+// // console.log(list.removeFrom(2));
+// console.log("------");
+// list.reverse();
+// list.print();
+// console.log(list.search(55));
+// console.log(list.middleNode());
 
 // Q.1 Check linkedlist contains cycle
 
 // Q.2 Middle of Likedlist in O(n) using double pointer approach
 
 // Q.3 Reverse a linkedlist
+
+list.insertAtEnd(2);
+list.insertAtEnd(4);
+list.insertAtEnd(3);
+console.log(list);
+const value1 = list.print();
+// console.log(value1);
+
+const list2 = new LinkedList();
+list2.insertAtEnd(5);
+list2.insertAtEnd(6);
+list2.insertAtEnd(4);
+const value2 = list2.print();
+// console.log(value2);
+
+function addReverse(value1, value2) {
+  let iValue1 = value1.split("").reverse().join("");
+  iValue1 = parseInt(iValue1);
+  value2 = parseInt(value2.split("").reverse().join(""));
+  let result = iValue1 + value2;
+  result = result.toString().split("").reverse().join("");
+  console.log(result);
+  return result;
+}
+addReverse(value1, value2);
