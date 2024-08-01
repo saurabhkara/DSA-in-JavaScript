@@ -227,6 +227,15 @@ class DoublyLinkedList {
     node.prev = this.tail;
     this.tail = node;
   }
+  print() {
+    let temp = this.head;
+    let nodes = "";
+    while (temp) {
+      nodes = nodes + " " + temp.data;
+      temp = temp.next;
+    }
+    console.log(nodes);
+  }
 }
 
 const doubleLL = new DoublyLinkedList();
@@ -234,4 +243,4 @@ doubleLL.insertAtHead(20);
 doubleLL.insertAtHead(15);
 doubleLL.insertAtHead(10);
 doubleLL.insertAtEnd(52);
-console.log(doubleLL);
+doubleLL.print();
