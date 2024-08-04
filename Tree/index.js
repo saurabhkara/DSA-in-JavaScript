@@ -48,10 +48,63 @@ class BST {
       }
     }
   }
+
+  insertNodeUsingRecurssion(value, root = this.root) {
+    if (root === null) {
+      return new Node(value);
+    }
+
+    if (root.data === value) {
+      return;
+    }
+
+    if (root.data > value) {
+      root.left = this.insertNodeUsingRecurssion(value, root.left);
+    } else if (root.data < value) {
+      root.right = this.insertNodeUsingRecurssion(value, root.right);
+    }
+    return root;
+  }
+
+  search(key) {
+    let temp = this.root;
+    if (temp === null) {
+      return -1;
+    }
+
+    while (temp) {
+      if (temp.data === key) {
+        return temp;
+      } else if (temp.data > key) {
+        temp = temp.left;
+      } else {
+        temp = temp.right;
+      }
+    }
+    return -1;
+  }
+
+  searchUsingrecursion(key, root = this.root) {
+    if (root === null) {
+      return -1;
+    }
+    if (root.data === key) {
+      return root;
+    } else if (root.data > key) {
+      return this.searchUsingrecursion(key, root.left);
+    } else {
+      return this.searchUsingrecursion(key, root.right);
+    }
+  }
 }
 
 const bst = new BST();
 bst.insert(54);
 bst.insert(30);
 bst.insert(55);
+bst.insertNodeUsingRecurssion(60);
+console.log(bst.search(55));
+console.log(bst.search(65));
+console.log(bst.searchUsingrecursion(30));
+console.log(bst.searchUsingrecursion(40));
 console.log(bst);
