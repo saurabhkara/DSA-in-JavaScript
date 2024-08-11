@@ -96,6 +96,38 @@ class BST {
       return this.searchUsingrecursion(key, root.right);
     }
   }
+
+  deleteNode(key, root = this.root) {
+    if (root === null) {
+      return -1;
+    }
+
+    if (root.data < key) {
+      root.right = this.deleteNode(key, root.right);
+    } else if (root.data > key) {
+      root.left = this.deleteNode(key, root.left);
+    } else {
+      if (root.left === null && root.right === null) {
+        return null;
+      } else if (node.left === null) {
+        return root.right;
+      } else if (node.right === null) {
+        return root.left;
+      } else {
+        const tempNode = this.inorderNode(root.right);
+        root.data = tempNode.data;
+        root.right = this.deleteNode(tempNode.data, root.right);
+      }
+    }
+    return root;
+  }
+
+  inorderNode(root) {
+    if (root.left === null) {
+      return root;
+    }
+    return this.inorderNode(root.left);
+  }
 }
 
 const bst = new BST();
