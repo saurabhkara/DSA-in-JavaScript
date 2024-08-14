@@ -23,7 +23,6 @@ class BST {
 
     let flag = true;
     while (flag) {
-      console.log(temp);
       if (temp.data === key) {
         flag = false;
         return false;
@@ -114,7 +113,7 @@ class BST {
       } else if (node.right === null) {
         return root.left;
       } else {
-        const tempNode = this.inorderNode(root.right);
+        const tempNode = this.inorderMinNode(root.right);
         root.data = tempNode.data;
         root.right = this.deleteNode(tempNode.data, root.right);
       }
@@ -122,11 +121,37 @@ class BST {
     return root;
   }
 
-  inorderNode(root) {
+  inorderMinNode(root) {
     if (root.left === null) {
       return root;
     }
-    return this.inorderNode(root.left);
+    return this.inorderMinNode(root.left);
+  }
+
+  inOrderTravesal(root = this.root) {
+    if (root === null) {
+      return null;
+    }
+    this.inOrderTravesal(root.left);
+    console.log(root.data);
+    this.inOrderTravesal(root.right);
+  }
+  preOrderTravesal(root = this.root) {
+    if (root === null) {
+      return null;
+    }
+    console.log(root.data);
+    this.preOrderTravesal(root.left);
+    this.preOrderTravesal(root.right);
+  }
+
+  postOrderTravesal(root = this.root) {
+    if (root === null) {
+      return null;
+    }
+    this.postOrderTravesal(root.left);
+    this.postOrderTravesal(root.right);
+    console.log(root.data);
   }
 }
 
@@ -139,4 +164,8 @@ console.log(bst.search(55));
 console.log(bst.search(65));
 console.log(bst.searchUsingrecursion(30));
 console.log(bst.searchUsingrecursion(40));
+// bst.deleteNode(30);
 console.log(bst);
+// bst.inOrderTravesal();
+// bst.preOrderTravesal();
+bst.postOrderTravesal();
