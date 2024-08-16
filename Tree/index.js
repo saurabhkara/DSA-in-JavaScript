@@ -121,6 +121,40 @@ class BST {
     return root;
   }
 
+  //Delete Node but replace node with predecessor node
+
+  deleteNodeWithPredecessor(key, root = this.root) {
+    if (root === null) {
+      return;
+    }
+
+    if (root.data < key) {
+      root.right = this.deleteNodeWithPredecessor(key, root.right);
+    } else if (root.data > key) {
+      root.left = this.deleteNodeWithPredecessor(key, root.left);
+    } else {
+      if (root.left === null && root.right === null) {
+        return null;
+      } else if (root.left === null) {
+        return root.right;
+      } else if (root.right === null) {
+        return root.left;
+      } else {
+        const tempNode = this.inorderPrecessorValue(root.left);
+        root.data = tempNode.data;
+        root.left = this.deleteNodeWithPredecessor(tempNode.data, root.left);
+      }
+    }
+    return root;
+  }
+
+  inorderPrecessorValue(root) {
+    if (root.right === null) {
+      return root;
+    }
+    return this.inorderPrecessorValue(root.right);
+  }
+
   inorderMinNode(root) {
     if (root.left === null) {
       return root;
@@ -159,6 +193,7 @@ const bst = new BST();
 bst.insert(54);
 bst.insert(30);
 bst.insert(55);
+bst.insert(35);
 bst.insertNodeUsingRecurssion(60);
 console.log(bst.search(55));
 console.log(bst.search(65));
@@ -168,4 +203,5 @@ console.log(bst.searchUsingrecursion(40));
 console.log(bst);
 // bst.inOrderTravesal();
 // bst.preOrderTravesal();
-bst.postOrderTravesal();
+// bst.postOrderTravesal();
+bst.deleteNodeWithPredecessor();
