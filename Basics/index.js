@@ -76,6 +76,7 @@ function isPalindrome(num) {
 // console.log(isPalindrome("jkjhh"));
 
 // Q.5 Fibonacci series using loop
+// The Fibonacci sequence is a sequence where the next term is the sum of the previous two terms
 
 function fibonacci(num) {
   if (num < 2) {
