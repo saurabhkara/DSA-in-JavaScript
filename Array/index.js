@@ -17,11 +17,12 @@ function checkElement(arr, elem) {
   return false;
 }
 
-// inbuilt method includes() can also be used.
 console.log(checkElement({}, 6));
 console.log(checkElement(arr1, ""));
 console.log(checkElement(arr1, 5));
 console.log(checkElement(arr1, 3));
+// inbuilt method includes() can also be used.
+// inclusdes() returns true if element is present in array else false, it works for string too.
 
 // Q.2 Check element exist and return array index
 
