@@ -88,6 +88,8 @@ const res = arr4.slice(1, 4);
 console.log(res);
 
 // Q.5 Shallow copy and Deep Copy
+//Shallow Copy stores the references of objects to the original memory address.
+//Deep copy stores the copy of the original object to the new memory address.
 
 // Q.6 Make Deep copy of array
 
