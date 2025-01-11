@@ -216,6 +216,7 @@ flatArr(arr14);
 console.log(flattendResultArr);
 
 // Q.13 Find pivot element
+//Pivot element is the element which divides the array into two equal parts. The sum of elements on the left side should be equal to the sum of elements on the right side.
 function pivotElement(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {

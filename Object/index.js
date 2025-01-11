@@ -35,7 +35,8 @@ console.log(obj4, obj5);
 
 // Q.4 Difference between freeze and seal method
 // Using freeze method, we cannot add or update properties of object.
-
+// Seal method is used to prevent adding new properties and update existing properties.
+// Difference between freeze and seal is that we cannot add or update properties in freeze method but we can update existing properties in seal method.
 Object.freeze(obj1);
 obj1.profession = "Software developer";
 console.log(obj1);
@@ -79,7 +80,7 @@ console.log(Object.is(obj1, obj3));
 
 // Q.10 Explain the concept of prototype and inheritence in JavaScript objects
 
-// Q.11  Count the number of players
+// Q.11  Count the number of unique players and all the players in the given data
 const data = {
   id: 1,
   name: ["P1", "P4"],
