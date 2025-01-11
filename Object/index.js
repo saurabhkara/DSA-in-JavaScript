@@ -142,6 +142,7 @@ function calculatePairs(arr) {
   return Object.values(pairsObj).length;
 }
 
+//T(n) = O(n^2)
 console.log(calculatePairs(pair));
 console.log(calculatePairs(pair2));
 console.log(calculatePairs(pair3));
@@ -200,24 +201,38 @@ let arr2 = [1, 2, 3, 2];
 
 function sumOfUnique(arr) {
   let obj = {};
-  for (let elem of arr) {
-    obj[elem] = (obj[elem] || 0) + 1;
-  }
-  console.log(obj);
-  const unique = Object.keys(obj);
   let sum = 0;
-  if (unique.length > 1) {
-    for (let elem in obj) {
-      if (obj[elem] === 1) {
-        sum = sum + parseInt(elem);
-      }
+  for (let elem of arr) {
+    if (!obj[elem]) {
+      obj[elem] = 1;
+      sum = sum + elem;
+    } else {
+      obj[elem] = obj[elem] + 1;
     }
   }
+  console.log(obj);
+
   return sum;
 }
 
 console.log(sumOfUnique(arr2));
 console.log(sumOfUnique([1, 1, 1, 1, 1]));
+
+//Another way using  set
+function sumUsingSet(arr) {
+  if (!Array.isArray(arr)) {
+    return;
+  }
+  const set = new Set(arr);
+  let sum = 0;
+  const uniqueArr = [...set];
+
+  for (let item of uniqueArr) {
+    sum = sum + item;
+  }
+  return sum;
+}
+sumUsingSet(arr2);
 
 // Q.16 Unique Number of Occurrences
 // Given an array of integers arr, return true if the number of occurrences of each value in the array is unique or false otherwise.
